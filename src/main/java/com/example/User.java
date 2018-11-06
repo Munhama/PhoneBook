@@ -1,6 +1,6 @@
 package com.example;
 
-class User
+abstract class User
 {
 	private static int NextId = 1;
 	
