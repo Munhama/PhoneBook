@@ -9,6 +9,7 @@ public class PB
 	{
 		ArrayList<Fiz> fizBook = new ArrayList<Fiz>();
 		ArrayList<Ur> urBook = new ArrayList<Ur>();
+
 		try
 		{
 			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv");
@@ -41,6 +42,34 @@ public class PB
 				urBook.add(new Ur(str[1], str[2], str[3], str[4]));
 			}
 			fr.close();
+		}
+		catch(IOException error)
+		{
+			System.out.println(error.getMessage());
+		}
+
+		try
+		{
+			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv", true);
+
+			int e=fizBook.size()-1;
+				fw.write(String.valueOf(fizBook.get(e).getId()) + ";" + fizBook.get(e).getName() + ";" + fizBook.get(e).getNumber() + ";" + fizBook.get(e).getAdress() + ";" + fizBook.get(e).getPhone() + "\n");
+			fw.flush();
+			fw.close();
+		}
+		catch(IOException error)
+		{
+			System.out.println(error.getMessage());
+		}
+
+		try
+		{
+			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Ur.csv", true);
+
+			int e=urBook.size()-1;
+			fw.write(String.valueOf(urBook.get(e).getId()) + ";" + urBook.get(e).getName() + ";" + urBook.get(e).getNumber() + ";" + urBook.get(e).getAdress() + ";" + urBook.get(e).getINN() + "\n");
+			fw.flush();
+			fw.close();
 		}
 		catch(IOException error)
 		{
