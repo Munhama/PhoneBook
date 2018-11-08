@@ -4,10 +4,10 @@ class Fiz extends User
 {
 	private String phone;
 	
-	public Fiz(String n, String np, String a, String p)
+	public Fiz(String name, String number, String adress, String phone)
 	{
-		super(n, np, a);
-		phone = p;
+		super(name, number, adress);
+		this.phone = phone;
 	}
 	
 	public String getPhone()

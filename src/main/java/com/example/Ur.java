@@ -4,10 +4,10 @@ class Ur extends User
 {
 	private String INN;
 	
-	public Ur(String n, String np, String a, String inn)
+	public Ur(String name, String number, String adress, String INN)
 	{
-		super(n, np, a);
-		INN = inn;
+		super(name, number, adress);
+		this.INN = INN;
 	}
 	
 	public String getINN()

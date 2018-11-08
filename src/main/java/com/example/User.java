@@ -9,11 +9,11 @@ abstract class User
 	private String adress;
 	private int id;
 	
-	public User(String n, String np, String a)
+	public User(String name, String number, String adress)
 	{
-		name = n;
-		number = np;
-		adress = a;
+		this.name = name;
+		this.number = number;
+		this.adress = adress;
 		id = 0;
 		setNextId();
 	}
