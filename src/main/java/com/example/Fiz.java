@@ -6,7 +6,12 @@ class Fiz extends User
 
 	private String phone;
 	private int id;
-	
+
+	public Fiz()
+	{
+
+	}
+
 	public Fiz(String name, String number, String adress, String phone)
 	{
 		super(name, number, adress);
@@ -34,5 +39,17 @@ class Fiz extends User
 	public static int getNextId()
 	{
 		return NextId;
+	}
+
+	public String toCSV()
+	{
+		return (id + ";" + super.toCSV() + phone + "\n");
+	}
+	public void fromCSV(String str)
+	{
+		String[] arr = str.split(";");
+		id = Integer.valueOf(arr[0]);
+		super.fromCSV(str);
+		phone = arr[4];
 	}
 }

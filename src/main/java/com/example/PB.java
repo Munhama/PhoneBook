@@ -14,13 +14,13 @@ public class PB
 		{
 			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv");
 
-			String[] str;
 			Scanner scan = new Scanner(fr);
 			scan.nextLine();
 			while(scan.hasNextLine())
 			{
-				str = scan.nextLine().split(";");
-				fizBook.add(new Fiz(str[1], str[2], str[3], str[4]));
+				Fiz fiz = new Fiz();
+				fiz.fromCSV(scan.nextLine());
+				fizBook.add(fiz);
 			}
 			fr.close();
 		}
@@ -33,13 +33,13 @@ public class PB
 		{
 			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Ur.csv");
 
-			String[] str;
 			Scanner scan = new Scanner(fr);
 			scan.nextLine();
 			while(scan.hasNextLine())
 			{
-				str = scan.nextLine().split(";");
-				urBook.add(new Ur(str[1], str[2], str[3], str[4]));
+				Ur ur = new Ur();
+				ur.fromCSV(scan.nextLine());
+				urBook.add(ur);
 			}
 			fr.close();
 		}
@@ -53,7 +53,7 @@ public class PB
 			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv", true);
 
 			int e=fizBook.size()-1;
-				fw.write(String.valueOf(fizBook.get(e).getId()) + ";" + fizBook.get(e).getName() + ";" + fizBook.get(e).getNumber() + ";" + fizBook.get(e).getAdress() + ";" + fizBook.get(e).getPhone() + "\n");
+			fw.write(fizBook.get(e).toCSV());
 			fw.flush();
 			fw.close();
 		}
@@ -67,7 +67,7 @@ public class PB
 			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Ur.csv", true);
 
 			int e=urBook.size()-1;
-			fw.write(String.valueOf(urBook.get(e).getId()) + ";" + urBook.get(e).getName() + ";" + urBook.get(e).getNumber() + ";" + urBook.get(e).getAdress() + ";" + urBook.get(e).getINN() + "\n");
+			fw.write(urBook.get(e).toCSV());
 			fw.flush();
 			fw.close();
 		}

@@ -1,10 +1,15 @@
 package com.example;
 
-abstract class User
+class User implements CSV
 {
 	private String name;
 	private String number;
 	private String adress;
+
+	public User()
+	{
+
+	}
 	
 	public User(String name, String number, String adress)
 	{
@@ -24,5 +29,17 @@ abstract class User
 	public String getAdress()
 	{
 		return adress;
+	}
+
+	public String toCSV()
+	{
+		return (name + ";" + number + ";" + adress + ";");
+	}
+	public void fromCSV(String str)
+	{
+		String[] arr = str.split(";");
+		name = arr[1];
+		number = arr[2];
+		adress = arr[3];
 	}
 }

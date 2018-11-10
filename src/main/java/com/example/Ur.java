@@ -6,7 +6,12 @@ class Ur extends User
 
 	private String INN;
 	private int id;
-	
+
+	public Ur()
+	{
+
+	}
+
 	public Ur(String name, String number, String adress, String INN)
 	{
 		super(name, number, adress);
@@ -34,5 +39,17 @@ class Ur extends User
 	public static int getNextId()
 	{
 		return NextId;
+	}
+
+	public String toCSV()
+	{
+		return (id + ";" + super.toCSV() + INN + "\n");
+	}
+	public void fromCSV(String str)
+	{
+		String[] arr = str.split(";");
+		id = Integer.valueOf(arr[0]);
+		super.fromCSV(str);
+		INN = arr[4];
 	}
 }
