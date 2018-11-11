@@ -9,7 +9,8 @@ class Ur extends User
 
 	public Ur()
 	{
-
+		id = 0;
+		//setNextId();
 	}
 
 	public Ur(String name, String number, String adress, String INN)
@@ -17,7 +18,7 @@ class Ur extends User
 		super(name, number, adress);
 		this.INN = INN;
 		id = 0;
-		setNextId();
+		//setNextId();
 	}
 	
 	public String getINN()
@@ -27,10 +28,12 @@ class Ur extends User
 
 	public int getId()
 	{
+		id = NextId;
+		NextId++;
 		return id;
 	}
 
-	public void setNextId()
+	/*public void setNextId()
 	{
 		id = NextId;
 		NextId++;
@@ -39,7 +42,7 @@ class Ur extends User
 	public static int getNextId()
 	{
 		return NextId;
-	}
+	}*/
 
 	public String toCSV()
 	{

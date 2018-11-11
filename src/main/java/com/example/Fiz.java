@@ -9,7 +9,8 @@ class Fiz extends User
 
 	public Fiz()
 	{
-
+		id = 0;
+		//setNextId();
 	}
 
 	public Fiz(String name, String number, String adress, String phone)
@@ -17,7 +18,7 @@ class Fiz extends User
 		super(name, number, adress);
 		this.phone = phone;
 		id = 0;
-		setNextId();
+		//setNextId();
 	}
 	
 	public String getPhone()
@@ -27,19 +28,22 @@ class Fiz extends User
 
 	public int getId()
 	{
+		id = NextId;
+		NextId++;
 		return id;
 	}
 
-	public void setNextId()
+	/*public void setNextId()
 	{
 		id = NextId;
 		NextId++;
+		getNextId();
 	}
 
 	public static int getNextId()
 	{
 		return NextId;
-	}
+	}*/
 
 	public String toCSV()
 	{

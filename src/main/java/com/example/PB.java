@@ -7,8 +7,8 @@ public class PB
 {
 	public static void main(String[] args)
 	{
-		ArrayList<Fiz> fizBook = new ArrayList<Fiz>();
-		ArrayList<Ur> urBook = new ArrayList<Ur>();
+		ArrayList<Fiz> fizBook = new ArrayList<>();
+		ArrayList<Ur> urBook = new ArrayList<>();
 
 		try
 		{
@@ -48,6 +48,8 @@ public class PB
 			System.out.println(error.getMessage());
 		}
 
+		fizBook.add(new Fiz("James", "85479621325", "Gogol st. 15", "2548965"));
+
 		try
 		{
 			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv", true);
@@ -76,14 +78,16 @@ public class PB
 			System.out.println(error.getMessage());
 		}
 
-		for(int e=0; e<fizBook.size(); e++)
+		for(Fiz e : fizBook)
 		{
-			System.out.println("ID: " + fizBook.get(e).getId() + " Name: " + fizBook.get(e).getName() + " Tel: " + fizBook.get(e).getNumber() + " Adress: " + fizBook.get(e).getAdress() + " Phone: " + fizBook.get(e).getPhone());
+			System.out.println("ID: " + e.getId() + " Name: " + e.getName() + " Tel: " + e.getNumber() + " Adress: " + e.getAdress() + " Phone: " + e.getPhone());
 		}
 
-		for(int e=0; e<urBook.size(); e++)
+		System.out.println();
+
+		for(Ur e : urBook)
 		{
-			System.out.println("ID: " + urBook.get(e).getId() + " Name: " + urBook.get(e).getName() + " Tel: " + urBook.get(e).getNumber() + " Adress: " + urBook.get(e).getAdress() + " INN: " + urBook.get(e).getINN());
+			System.out.println("ID: " + e.getId() + " Name: " + e.getName() + " Tel: " + e.getNumber() + " Adress: " + e.getAdress() + " INN: " + e.getINN());
 		}
 	}
 }
