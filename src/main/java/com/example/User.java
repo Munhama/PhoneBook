@@ -1,6 +1,6 @@
 package com.example;
 
-class User implements CSV
+public class User implements CSV
 {
 	private String name;
 	private String number;

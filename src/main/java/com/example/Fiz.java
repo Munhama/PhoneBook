@@ -1,6 +1,6 @@
 package com.example;
 
-class Fiz extends User
+public class Fiz extends User
 {
 	private static int NextId = 1;
 

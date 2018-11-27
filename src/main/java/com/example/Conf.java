@@ -1,6 +1,6 @@
 package com.example;
 
-class Conf
+public class Conf extends CC
 {
     private String[] FIO;
     private int time;
@@ -18,5 +18,9 @@ class Conf
     public int getTime()
     {
         return time;
+    }
+    public String getFirst()
+    {
+        return null;
     }
 }

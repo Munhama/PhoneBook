@@ -1,6 +1,6 @@
 package com.example;
 
-class Calls
+public class Calls extends CC
 {
     private String FIO1;
     private String FIO2;
