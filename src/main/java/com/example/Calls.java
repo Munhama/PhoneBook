@@ -13,11 +13,11 @@ public class Calls extends CC
         this.time = time;
     }
 
-    public String getFIO1()
+    public String getFirst()
     {
         return FIO1;
     }
-    public String getFIO2()
+    public String getSecond()
     {
         return FIO2;
     }

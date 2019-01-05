@@ -11,6 +11,24 @@ public class PB
 		ArrayList<Fiz> fizBook = new ArrayList<>();
 		ArrayList<Ur> urBook = new ArrayList<>();
 
+		String URL = "jdbc:mysql://localhost:3306/test";
+		try
+		{
+			Connection con = DriverManager.getConnection(URL,"root","1004");
+			Statement st = con.createStatement();
+			String query = "SELECT * FROM user";
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				String fio = rs.getString("fio");
+				System.out.println(fio);
+			}
+		}
+		catch (SQLException error)
+		{
+			System.out.println(error.getMessage());
+		}
+
 		try
 		{
 			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv");
@@ -49,7 +67,7 @@ public class PB
 			System.out.println(error.getMessage());
 		}
 
-		fizBook.add(new Fiz("James", "85479621325", "Gogol st. 15", "2548965"));
+		/*fizBook.add(new Fiz("James", "85479621325", "Gogol st. 15", "2548965"));
 
 		try
 		{
@@ -77,7 +95,7 @@ public class PB
 		catch(IOException error)
 		{
 			System.out.println(error.getMessage());
-		}
+		}*/
 
 		for(Fiz e : fizBook)
 		{

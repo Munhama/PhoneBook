@@ -7,3 +7,11 @@ task wrapper(type: Wrapper){
 run {
 	standardInput = System.in
 }
+repositories{
+	flatDir{
+		dirs 'libs'
+	}
+}
+dependencies{
+	compile files("libs/mysql-connector-java-8.0.13.jar")
+}
