@@ -6,6 +6,11 @@ import java.sql.*;
 
 public class PB
 {
+	private static Connection con;
+	private static Statement st;
+	private static ResultSet rs;
+	private static String query;
+
 	public static void main(String[] args)
 	{
 		ArrayList<Fiz> fizBook = new ArrayList<>();
@@ -14,14 +19,51 @@ public class PB
 		String URL = "jdbc:mysql://localhost:3306/test";
 		try
 		{
-			Connection con = DriverManager.getConnection(URL,"root","1004");
-			Statement st = con.createStatement();
-			String query = "SELECT * FROM user";
-			ResultSet rs = st.executeQuery(query);
+			con = DriverManager.getConnection(URL,"root","1004");
+			st = con.createStatement();
+			query = "SELECT * FROM user";
+			rs = st.executeQuery(query);
 			while(rs.next())
 			{
+				int id = rs.getInt("id");
 				String fio = rs.getString("fio");
-				System.out.println(fio);
+				String phone = rs.getString("phone");
+				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
+			}
+
+			Scanner scan = new Scanner(System.in);
+
+			System.out.println("1 - del; 2 - add");
+			String choice = scan.next();
+			switch (choice){
+				case "1":
+					System.out.print("Enter id: ");
+					int del = scan.nextInt();
+					query = "DELETE FROM user WHERE id = "+del;
+					st.executeUpdate(query);
+					break;
+				case "2":
+					System.out.print("Enter id: ");
+					int id = scan.nextInt();
+					System.out.print("Enter fio: ");
+					String fio = scan.next();
+					System.out.print("Enter phone: ");
+					String phone = scan.next();
+					query = "INSERT INTO user VALUES ('"+id+"','"+fio+"','"+phone+"')";
+					//System.out.println(query);
+					st.executeUpdate(query);
+					break;
+			}
+
+			query = "SELECT * FROM user";
+			rs = st.executeQuery(query);
+
+			while(rs.next())
+			{
+				int id = rs.getInt("id");
+				String fio = rs.getString("fio");
+				String phone = rs.getString("phone");
+				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
 			}
 		}
 		catch (SQLException error)
@@ -96,6 +138,8 @@ public class PB
 		{
 			System.out.println(error.getMessage());
 		}*/
+
+		System.out.println();
 
 		for(Fiz e : fizBook)
 		{
