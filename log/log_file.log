@@ -1,0 +1,16 @@
+2019-01-12 15:00:57 ERROR PB:128 - IOException
+java.io.FileNotFoundException: /src/main/resources/Fiz.csv (Нет такого файла или каталога)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:158)
+	at java.base/java.io.FileWriter.<init>(FileWriter.java:82)
+	at com.example.PB.main(PB.java:119)
+2019-01-12 15:03:48 ERROR PB:115 - IOException
+java.io.FileNotFoundException: ./src/main/resources/Ur1.csv (Нет такого файла или каталога)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at com.example.PB.main(PB.java:101)

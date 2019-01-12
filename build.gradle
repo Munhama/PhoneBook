@@ -13,5 +13,5 @@ repositories{
 	}
 }
 dependencies{
-	compile files("libs/mysql-connector-java-8.0.13.jar")
+	compile fileTree(dir: 'libs', include: '*.jar')
 }

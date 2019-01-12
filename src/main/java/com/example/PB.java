@@ -3,6 +3,7 @@ package com.example;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
+import org.apache.log4j.Logger;
 
 public class PB
 {
@@ -10,6 +11,8 @@ public class PB
 	private static Statement st;
 	private static ResultSet rs;
 	private static String query;
+
+	final static Logger log = Logger.getLogger(PB.class);
 
 	public static void main(String[] args)
 	{
@@ -53,6 +56,9 @@ public class PB
 					//System.out.println(query);
 					st.executeUpdate(query);
 					break;
+				default:
+					System.out.println("Incorrect choice");
+					break;
 			}
 
 			query = "SELECT * FROM user";
@@ -68,12 +74,12 @@ public class PB
 		}
 		catch (SQLException error)
 		{
-			System.out.println(error.getMessage());
+			log.error("SQLException", error);
 		}
 
 		try
 		{
-			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv");
+			FileReader fr = new FileReader(".//src//main//resources//Fiz.csv");
 
 			Scanner scan = new Scanner(fr);
 			scan.nextLine();
@@ -87,12 +93,12 @@ public class PB
 		}
 		catch(IOException error)
 		{
-			System.out.println(error.getMessage());
+			log.error("IOException", error);
 		}
 
 		try
 		{
-			FileReader fr = new FileReader("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Ur.csv");
+			FileReader fr = new FileReader(".//src//main//resources//Ur.csv");
 
 			Scanner scan = new Scanner(fr);
 			scan.nextLine();
@@ -106,14 +112,14 @@ public class PB
 		}
 		catch(IOException error)
 		{
-			System.out.println(error.getMessage());
+			log.error("IOException", error);
 		}
-
-		/*fizBook.add(new Fiz("James", "85479621325", "Gogol st. 15", "2548965"));
+/*
+		urBook.add(new Ur("James", "85479621325", "Gogol st. 15", "15264587951"));
 
 		try
 		{
-			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Fiz.csv", true);
+			FileWriter fw = new FileWriter(".//src//main//resources//Fiz.csv", true);
 
 			int e=fizBook.size()-1;
 			fw.write(fizBook.get(e).toCSV());
@@ -122,12 +128,12 @@ public class PB
 		}
 		catch(IOException error)
 		{
-			System.out.println(error.getMessage());
+			log.error("IOException", error);
 		}
 
 		try
 		{
-			FileWriter fw = new FileWriter("//home//munhama//Рабочий стол//JAVA//PhoneBook//src//main//resources//Ur.csv", true);
+			FileWriter fw = new FileWriter(".//src//main//resources//Ur.csv", true);
 
 			int e=urBook.size()-1;
 			fw.write(urBook.get(e).toCSV());
@@ -136,9 +142,9 @@ public class PB
 		}
 		catch(IOException error)
 		{
-			System.out.println(error.getMessage());
-		}*/
-
+			log.error("IOException", error);
+		}
+*/
 		System.out.println();
 
 		for(Fiz e : fizBook)
