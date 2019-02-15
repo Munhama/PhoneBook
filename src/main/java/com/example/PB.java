@@ -3,7 +3,10 @@ package com.example;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
+
+import com.google.gson.reflect.TypeToken;
 import org.apache.log4j.Logger;
+import com.google.gson.Gson;
 
 public class PB
 {
@@ -18,6 +21,7 @@ public class PB
 	{
 		ArrayList<Fiz> fizBook = new ArrayList<>();
 		ArrayList<Ur> urBook = new ArrayList<>();
+		ArrayList<User> usr = new ArrayList<>();
 
 		String URL = "jdbc:mysql://localhost:3306/test";
 		try
@@ -34,7 +38,7 @@ public class PB
 				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
 			}
 
-			Scanner scan = new Scanner(System.in);
+			/*Scanner scan = new Scanner(System.in);
 
 			System.out.println("1 - del; 2 - add");
 			String choice = scan.next();
@@ -53,7 +57,6 @@ public class PB
 					System.out.print("Enter phone: ");
 					String phone = scan.next();
 					query = "INSERT INTO user VALUES ('"+id+"','"+fio+"','"+phone+"')";
-					//System.out.println(query);
 					st.executeUpdate(query);
 					break;
 				default:
@@ -70,11 +73,43 @@ public class PB
 				String fio = rs.getString("fio");
 				String phone = rs.getString("phone");
 				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
-			}
+			}*/
 		}
 		catch (SQLException error)
 		{
 			log.error("SQLException", error);
+		}
+
+		System.out.println();
+		
+		Gson gson = new Gson();
+		usr.add(new User("Ivan","89564589789","Lenin st. 1"));
+		usr.add(new User("Pavel","89995688998","Kirova st. 154"));
+		String input = gson.toJson(usr);
+		try
+		{
+			FileWriter fw = new FileWriter(".//src//main//resources//file.json");
+			fw.write(input);
+			fw.flush();
+			fw.close();
+		}
+		catch (IOException error)
+		{
+			log.error("IOException", error);
+		}
+
+		try
+		{
+			FileReader fr = new FileReader(".//src//main//resources//file.json");
+			List<User> user = gson.fromJson(fr, new TypeToken<List<User>>(){}.getType());
+			for(User e : user) {
+				System.out.println("Name: " + e.getName() + " Tel: " + e.getNumber() + " Adress: " + e.getAdress());
+			}
+			fr.close();
+		}
+		catch (IOException error)
+		{
+			log.error("IOException", error);
 		}
 
 		try
