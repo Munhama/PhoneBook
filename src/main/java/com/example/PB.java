@@ -1,25 +1,34 @@
 package com.example;
 
-import java.io.*;
+/*import java.io.*;
 import java.util.*;
 import java.sql.*;
 
 import com.google.gson.reflect.TypeToken;
 import org.apache.log4j.Logger;
-import com.google.gson.Gson;
+import com.google.gson.Gson;*/
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan
 public class PB
 {
-	private static Connection con;
+	/*private static Connection con;
 	private static Statement st;
 	private static ResultSet rs;
 	private static String query;
 
-	final static Logger log = Logger.getLogger(PB.class);
+	final static Logger log = Logger.getLogger(PB.class);*/
 
 	public static void main(String[] args)
 	{
-		ArrayList<Fiz> fizBook = new ArrayList<>();
+
+		SpringApplication.run(PB.class, args);
+
+		/*ArrayList<Fiz> fizBook = new ArrayList<>();
 		ArrayList<Ur> urBook = new ArrayList<>();
 		ArrayList<User> usr = new ArrayList<>();
 
@@ -36,7 +45,7 @@ public class PB
 				String fio = rs.getString("fio");
 				String phone = rs.getString("phone");
 				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
-			}
+			}*/
 
 			/*Scanner scan = new Scanner(System.in);
 
@@ -74,14 +83,14 @@ public class PB
 				String phone = rs.getString("phone");
 				System.out.println("ID: " + id + " Name: " + fio + " Tel: " + phone);
 			}*/
-		}
+		/*}
 		catch (SQLException error)
 		{
 			log.error("SQLException", error);
 		}
 
-		System.out.println();
-		
+		System.out.println();*/
+		/*
 		Gson gson = new Gson();
 		usr.add(new User("Ivan","89564589789","Lenin st. 1"));
 		usr.add(new User("Pavel","89995688998","Kirova st. 154"));
@@ -148,7 +157,7 @@ public class PB
 		catch(IOException error)
 		{
 			log.error("IOException", error);
-		}
+		}*/
 /*
 		urBook.add(new Ur("James", "85479621325", "Gogol st. 15", "15264587951"));
 
@@ -180,7 +189,7 @@ public class PB
 			log.error("IOException", error);
 		}
 */
-		System.out.println();
+		/*System.out.println();
 
 		for(Fiz e : fizBook)
 		{
@@ -192,6 +201,6 @@ public class PB
 		for(Ur e : urBook)
 		{
 			System.out.println("ID: " + e.getId() + " Name: " + e.getName() + " Tel: " + e.getNumber() + " Adress: " + e.getAdress() + " INN: " + e.getINN());
-		}
+		}*/
 	}
 }
