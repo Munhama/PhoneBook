@@ -13,9 +13,9 @@ public class Fiz extends User
 		//setNextId();
 	}
 
-	public Fiz(String name, String number, String adress, String phone)
+	public Fiz(String name, String number, String address, String phone)
 	{
-		super(name, number, adress);
+		super(name, number, address);
 		this.phone = phone;
 		id = 0;
 		//setNextId();

@@ -13,9 +13,9 @@ public class Ur extends User
 		//setNextId();
 	}
 
-	public Ur(String name, String number, String adress, String INN)
+	public Ur(String name, String number, String address, String INN)
 	{
-		super(name, number, adress);
+		super(name, number, address);
 		this.INN = INN;
 		id = 0;
 		//setNextId();

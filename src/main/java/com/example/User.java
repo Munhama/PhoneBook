@@ -4,18 +4,18 @@ public class User implements CSV
 {
 	private String name;
 	private String number;
-	private String adress;
+	private String address;
 
 	public User()
 	{
 
 	}
 	
-	public User(String name, String number, String adress)
+	public User(String name, String number, String address)
 	{
 		this.name = name;
 		this.number = number;
-		this.adress = adress;
+		this.address = address;
 	}
 	
 	public String getName()
@@ -26,20 +26,20 @@ public class User implements CSV
 	{
 		return number;
 	}
-	public String getAdress()
+	public String getAddress()
 	{
-		return adress;
+		return address;
 	}
 
 	public String toCSV()
 	{
-		return (name + ";" + number + ";" + adress + ";");
+		return (name + ";" + number + ";" + address + ";");
 	}
 	public void fromCSV(String str)
 	{
 		String[] arr = str.split(";");
 		name = arr[1];
 		number = arr[2];
-		adress = arr[3];
+		address = arr[3];
 	}
 }
