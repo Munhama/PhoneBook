@@ -2,4 +2,4 @@
 !src/ 
 !build.gradle 
 !.gitignore 
-!libs/
+!.travis.yml

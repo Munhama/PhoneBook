@@ -35,12 +35,12 @@ public class TestUser {
     public void equalityFizUr(){
         int expectedFiz = db.fiz().size();
         int expectedUr = db.ur().size();
-        Assert.assertTrue(expectedFiz > expectedUr);
+        Assert.assertEquals(expectedFiz, expectedUr);
     }
 
     @Test
-    public void nullUser(){
+    public void notNullUser(){
         int expected = db.user().size();
-        Assert.assertNull(expected);
+        Assert.assertNotNull(expected);
     }
 }
