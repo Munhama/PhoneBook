@@ -1,12 +1,8 @@
 package com.example;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 public class TestUser {
 
-    private DB db;
+    /*private DB db;
 
     @Before
     public void newDB(){
@@ -42,5 +38,5 @@ public class TestUser {
     public void notNullUser(){
         int expected = db.user().size();
         Assert.assertNotNull(expected);
-    }
+    }*/
 }
